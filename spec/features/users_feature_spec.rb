@@ -13,6 +13,11 @@ context 'user not signed in and on the homepage' do
     expect(page).not_to have_link('Sign out')
   end
 
+  it 'should be able to login with Facebook' do 
+    visit('/')
+    expect(page).to have_link('Sign in with Facebook')
+  end
+
 end
 
 context 'user signed in on the homepage' do 
