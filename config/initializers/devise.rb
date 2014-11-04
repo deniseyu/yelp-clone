@@ -39,7 +39,7 @@ Devise.setup do |config|
   # config.request_keys = []
 
   # Facebook omniauth
-  config.omniauth :facebook, ENV["APP_ID"], ENV["APP_SECRET"]
+  config.omniauth :facebook, ENV["app_id"], ENV["app_secret"]
 
 
   # Configure which authentication keys should be case-insensitive.
