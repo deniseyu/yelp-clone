@@ -41,6 +41,11 @@ describe 'restaurants' do
 
   end
 
+end
+
+
+describe 'managing restaurants' do 
+
   context 'creating restaurants' do 
 
     it 'prompts a user to fill out a form, then displays the new restaurant' do 
@@ -82,6 +87,25 @@ describe 'restaurants' do
       click_link 'Delete KFC'
       expect(page).not_to have_content 'KFC'
       expect(page).to have_content 'Restaurant deleted successfully' 
+    end
+
+  end
+
+  context 'invalid restaurants' do 
+
+    it 'does not let you submit a name that is too short' do 
+      visit '/restaurants'
+      click_link 'Add a restaurant'
+      fill_in 'Name', with: 'kf'
+      click_button 'Create Restaurant'
+      expect(page).not_to have_css 'h2', text: 'kf'
+      expect(page).to have_content 'error'
+    end
+
+    it 'must have a unique name' do 
+      Restaurant.create(name: "Moe's Tavern")
+      restaurant = Restaurant.new(name: "Moe's Tavern")
+      expect(restaurant).to have(1).error_on(:name)
     end
 
   end
