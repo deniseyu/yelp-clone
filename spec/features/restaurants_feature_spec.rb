@@ -15,7 +15,7 @@ describe 'restaurants' do
   context 'restaurants have been added' do 
 
     before do 
-      Restaurant.create(name: 'KFC')
+      Restaurant.create(name: 'KFC', user_id: 4)
     end
 
     it 'should display restaurants' do 
@@ -47,21 +47,14 @@ end
 describe 'managing restaurants' do 
 
   before do 
-    visit('/')
-    click_link 'Sign up'
-    fill_in('Email', with: 'test@example.com')
-    fill_in('Password', with: 'testtest')
-    fill_in('Password confirmation', with: 'testtest')
-    click_button('Sign up')
+    sign_up
+    create_kfc
   end
 
   context 'creating restaurants' do 
 
-    it 'prompts a user to fill out a form, then displays the new restaurant' do 
+    it 'displays a new restaurant that was created' do 
       visit '/restaurants'
-      click_link 'Add a restaurant'
-      fill_in 'Name', with: 'KFC'
-      click_button 'Create Restaurant'
       expect(page).to have_content 'KFC'
       expect(current_path).to eq '/restaurants'
     end
@@ -70,11 +63,7 @@ describe 'managing restaurants' do
 
   context 'editing restaurants' do 
 
-    before do 
-      Restaurant.create(name: 'KFC')
-    end
-
-    it 'lets a user edit a restaurant' do 
+    it 'lets a user edit a restaurant he added' do 
       visit '/restaurants'
       click_link 'Edit KFC'
       fill_in 'Name', with: 'Kentucky Fried Chicken'
@@ -83,13 +72,14 @@ describe 'managing restaurants' do
       expect(current_path).to eq '/restaurants'
     end
 
+    it 'does not let a user edit a restaurant he did not add' do 
+      visit '/restaurants'
+      expect(page).not_to have_content 'Edit Wendys'
+    end
+
   end
 
   context 'deleting restaurants' do 
-
-    before do 
-      Restaurant.create(name: 'KFC')
-    end
 
     it 'removes a restaurant when a user clicks delete' do
       visit '/restaurants'

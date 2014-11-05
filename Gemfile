@@ -44,3 +44,7 @@ gem 'rspec-collection_matchers', group: :test
 gem 'devise'
 gem 'omniauth-facebook'
 gem 'figaro'
+gem 'cancan'
+gem 'pry-rails', group: [:test, :development]
+
+

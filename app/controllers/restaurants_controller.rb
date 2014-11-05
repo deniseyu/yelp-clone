@@ -11,7 +11,8 @@ class RestaurantsController < ApplicationController
   end
   
   def create
-    @restaurant = Restaurant.new(restaurant_params)
+    @user = User.find(current_user)
+    @restaurant = @user.restaurants.new(restaurant_params)
     if @restaurant.save
       redirect_to restaurants_path
     else
@@ -29,6 +30,10 @@ class RestaurantsController < ApplicationController
 
   def edit
     @restaurant = Restaurant.find(params[:id])
+    # unless current_user = restaurant_user
+    #   redirect_to('/') 
+    #   flash[:notice] = "This is not your restaurant" 
+    # end
   end
 
   def update
@@ -39,6 +44,10 @@ class RestaurantsController < ApplicationController
 
   def destroy
     @restaurant = Restaurant.find(params[:id])
+    # unless current_user.id = restaurant_user_id
+    #   redirect_to('/') 
+    #   flash[:notice] = "This is not your restaurant" 
+    # end
     @restaurant.destroy
     flash[:notice] = 'Restaurant deleted successfully'
     redirect_to '/restaurants'
