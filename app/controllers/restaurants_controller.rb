@@ -30,6 +30,7 @@ class RestaurantsController < ApplicationController
 
   def edit
     @restaurant = Restaurant.find(params[:id])
+    flash[:notice] = 'Restaurant successfully edited'
     # unless current_user = restaurant_user
     #   redirect_to('/') 
     #   flash[:notice] = "This is not your restaurant" 
@@ -39,18 +40,14 @@ class RestaurantsController < ApplicationController
   def update
     @restaurant = Restaurant.find(params[:id])
     @restaurant.update(params[:restaurant].permit(:name))
-    redirect_to '/restaurants'
+    redirect_to restaurants_path
   end
 
   def destroy
     @restaurant = Restaurant.find(params[:id])
-    # unless current_user.id = restaurant_user_id
-    #   redirect_to('/') 
-    #   flash[:notice] = "This is not your restaurant" 
-    # end
     @restaurant.destroy
     flash[:notice] = 'Restaurant deleted successfully'
-    redirect_to '/restaurants'
+    redirect_to restaurants_path
   end
 
 end

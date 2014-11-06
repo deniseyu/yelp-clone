@@ -1,0 +1,11 @@
+<p>Edit your review</p>
+Original review: 
+<p><%= @review.thoughts %>, <%= @review.rating %>/5
+  
+<%= form_for [@restaurant, @review] do |f| %>
+  <%= f.label :thoughts %>
+  <%= f.text_field :thoughts %>
+  <%= f.label :rating %>
+  <%= f.select :rating, (1..5) %>
+  <%= f.submit %>
+<% end %>
