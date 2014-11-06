@@ -48,5 +48,5 @@ gem 'cancan'
 gem 'pry-rails', group: [:test, :development]
 gem 'poltergeist', group: :test
 gem 'database_cleaner', group: :test
-
+gem 'paperclip'
 

@@ -46,6 +46,8 @@ end
 
 describe 'user managing restaurants' do 
 
+  include Rack::Test::Methods
+
   before do 
     sign_up
     create_kfc
@@ -58,6 +60,24 @@ describe 'user managing restaurants' do
       expect(page).to have_content 'KFC'
       expect(current_path).to eq '/restaurants'
     end
+
+    it 'adds a default picture if none is specified' do 
+      visit '/restaurants'
+      click_link 'Add a restaurant'
+      fill_in 'Name', with: 'Grandmas House'
+      click_button 'Create Restaurant'
+      expect(page).to have_selector("img[src$='missing.png']")
+    end
+
+    #  it 'adds a picture if one is specified' do 
+    #   visit '/restaurants'
+    #   click_link 'Add a restaurant'
+    #   fill_in 'Name', with: 'Grandmas House'
+    #   # click_button "Choose File"
+    #   post "/Choose File/", "file" => Rack::Test::UploadedFile.new("app/public/images/236.JPG", "mime/type")
+    #   click_button 'Create Restaurant'
+    #   expect(page).to have_selector("img[src$='missing.png']")
+    # end
 
   end
 
