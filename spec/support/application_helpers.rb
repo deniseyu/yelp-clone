@@ -16,10 +16,14 @@ module ApplicationHelper
   end
 
   def leave_review_for_kfc
+    leave_review('KFC', 'so so', 3)
+  end
+
+  def leave_review(restaurant, thoughts, rating)
     visit '/restaurants'
-    click_link 'Review KFC'
-    fill_in 'Thoughts', with: 'so so'
-    select '3', from: 'Rating'
+    click_link "Review #{restaurant}"
+    fill_in "Thoughts", with: thoughts
+    select rating, from: 'Rating'
     click_button 'Leave Review'
   end
 
@@ -31,11 +35,5 @@ module ApplicationHelper
     fill_in('Password confirmation', with: 'testtest')
     click_button('Sign up')
   end 
-
-  # def sign_in
-  #   User.create(email: 'test@test.com', password: 'hello123', password_confirmation: 'hello123')
-  #   visit('/restaurants')
-  #   click_link 'Sign in'
-  # end
 
 end

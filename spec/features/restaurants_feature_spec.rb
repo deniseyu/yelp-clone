@@ -44,7 +44,7 @@ describe 'restaurants' do
 end
 
 
-describe 'managing restaurants' do 
+describe 'user managing restaurants' do 
 
   before do 
     sign_up
