@@ -25,6 +25,12 @@ Rails.application.routes.draw do
     resources :reviews
   end
 
+  resources :restaurants, shallow: true do 
+    resources :reviews do 
+      resources :endorsements 
+    end
+  end
+
   # Example resource route with options:
   #   resources :products do
   #     member do
