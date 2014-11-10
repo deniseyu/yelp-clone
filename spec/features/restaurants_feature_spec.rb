@@ -73,10 +73,10 @@ describe 'user managing restaurants' do
     #   visit '/restaurants'
     #   click_link 'Add a restaurant'
     #   fill_in 'Name', with: 'Grandmas House'
-    #   # click_button "Choose File"
+    #   attach_file("Image", "spec/personridingcow.jpg")
     #   post "/Choose File/", "file" => Rack::Test::UploadedFile.new("app/public/images/236.JPG", "mime/type")
     #   click_button 'Create Restaurant'
-    #   expect(page).to have_selector("img[src$='missing.png']")
+    #   expect(page).to have_selector("img[src$='personridingcow.jpg']")
     # end
 
   end

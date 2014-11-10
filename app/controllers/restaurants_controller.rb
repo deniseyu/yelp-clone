@@ -31,10 +31,6 @@ class RestaurantsController < ApplicationController
   def edit
     @restaurant = Restaurant.find(params[:id])
     flash[:notice] = 'Restaurant successfully edited'
-    # unless current_user = restaurant_user
-    #   redirect_to('/') 
-    #   flash[:notice] = "This is not your restaurant" 
-    # end
   end
 
   def update
