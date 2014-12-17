@@ -3,13 +3,13 @@ class RestaurantsController < ApplicationController
   before_action :authenticate_user!, :except => [:index, :show]
 
   def index
-    @restaurants = Restaurant.all 
+    @restaurants = Restaurant.all.reverse
   end
 
-  def new 
-    @restaurant = Restaurant.new 
+  def new
+    @restaurant = Restaurant.new
   end
-  
+
   def create
     @user = User.find(current_user)
     @restaurant = @user.restaurants.new(restaurant_params)

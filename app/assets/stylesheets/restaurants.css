@@ -1,0 +1,148 @@
+body {
+  font-family: 'Vollkorn', serif;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+#nav-buttons-box {
+  position: fixed;
+  top: 20px;
+  left: 10px;
+}
+
+.nav-button {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 65px;
+  height: 60px;
+}
+
+#sign-in-button, #sign-out-button, #sign-up-button {
+  border: 1px solid #D96F32;
+  border-radius: 50%;
+}
+
+#site-main {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#notice, #alert {
+  padding: 20px;
+  width: 100%;
+  margin: 20px;
+  color: RGBA(212, 108, 53, 1);
+}
+
+#page-header {
+  position: relative;
+  display: block;
+  width: 60%;
+  margin-top: 70px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: visible;
+  white-space: nowrap;
+}
+
+.misifu-icon {
+  width: 160px;
+  border-radius: 50%;
+  display: inline;
+  margin: 10px;
+}
+
+#page-headline {
+  display: inline;
+  font-family: 'Amatic SC', cursive;
+  width: 300px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 6em;
+  color: #4E7FBF;
+  position: relative;
+  top: -50px;
+}
+
+#new-restaurant-button {
+  width: 120px;
+  padding: 20px;
+  background-color: #F2913D;
+  border-radius: 40px;
+}
+
+.restaurant-container {
+  background-color: RGBA(242, 191, 94, 0.5);
+  padding: 20px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  display: block;
+  float: top;
+}
+
+.devise-container {
+  margin-top: 20px;
+  background-color: RGBA(242, 191, 94, 0.5);
+  padding: 20px;
+  width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.devise-container h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.devise-container * {
+  margin-top: 5px;
+}
+
+.restaurant-name a {
+  font-size: 2em;
+}
+
+.restaurant-image-box {
+  display: inline-block;
+  margin: 10px;
+}
+
+.restaurant-text-box {
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+  margin: 10px;
+}
+
+.edit-or-delete-links {
+  font-size: 0.8em;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.restaurant-review-box {
+  margin: 10px;
+  font-size: 1.5em;
+  display: inline-block;
+  float: right;
+}
+
+.restaurant-text-box a, .restaurant-review-box a, .devise-container a {
+  color: #D96F32;
+}
+
+.restaurant-text-box a:hover, .restaurant-review-box a:hover, .devise-container a:hover {
+  color: #F2BF5E;
+}
+
+.star-rating {
+  color: blue;
+}

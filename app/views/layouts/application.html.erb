@@ -4,24 +4,41 @@
   <title>YelpClone</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <link href='https://fonts.googleapis.com/css?family=Amatic+SC' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Vollkorn' rel='stylesheet' type='text/css'>
   <%= csrf_meta_tags %>
   <meta charset="UTF-8">
 </head>
 <body>
 
+  <nav id='nav-buttons-box'>
+    <% if user_signed_in? %>
+      <%= link_to image_tag('/images/log-out-button.png'), destroy_user_session_path, method: :delete, :id => 'sign-out-button', :class => 'nav-button' %>
+    <% else %>
+      <%= link_to image_tag('/images/facebook.png'), user_omniauth_authorize_path(:facebook), :id => 'facebook-sign-in-button', :class => 'nav-button'%>
+      <%= link_to image_tag('/images/log-in-button.png'), new_user_session_path, :id => 'sign-in-button' , :class => 'nav-button'%>
+      <%= link_to image_tag('/images/sign-up-button.png'), new_user_registration_path, :id => 'sign-up-button', :class => 'nav-button' %>
+    <% end %>
+  </nav>
 
-<% if user_signed_in? %>
-  <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-<% else %>
-  <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
-  <%= link_to "Sign in", new_user_session_path %>
-  <%= link_to "Sign up", new_user_registration_path %>
-<% end %> 
+  <header id='page-header'>
+    <% misifu = ['misifu-01', 'misifu-02', 'misifu-03', 'misifu-04', 'misifu-05', 'misifu-06'].shuffle %>
+    <img src='/images/<%= misifu[0] %>.jpg' class='misifu-icon'/>
+    <img src='/images/<%= misifu[1] %>.jpg' class='misifu-icon'/>
+    <h1 id='page-headline'>Misifu Eats</h1>
+    <img src='/images/<%= misifu[2] %>.jpg' class='misifu-icon'/>
+    <img src='/images/<%= misifu[3] %>.jpg' class='misifu-icon'/>
+  </header>
 
-<p><%= notice %></p>
-<p><%= alert %></p>
-
-<%= yield %>
+  <main id='site-main'>
+    <% if notice %>
+      <p id='notice'><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p id='alert'><%= alert %></p>
+    <% end %>
+  <%= yield %>
+  </main>
 
 </body>
 </html>

@@ -39,7 +39,7 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem 'rspec-rails', group: :test
-gem 'capybara', group: :test 
+gem 'capybara', group: :test
 gem 'rspec-collection_matchers', group: :test
 gem 'devise'
 gem 'omniauth-facebook'
@@ -50,4 +50,5 @@ gem 'poltergeist', group: :test
 gem 'database_cleaner', group: :test
 gem 'paperclip'
 gem 'aws-sdk'
+gem 'rails_12factor'
 
