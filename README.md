@@ -16,7 +16,13 @@ A User can...
 * Endorse reviews
 * View all other users' restaurants and reviews
 
+### Preview
+
+
+
 ### To Use
+
+Deployed at [Misifu Eats](http://misifu-eats.herokuapp.com).
 
 Clone the repo:
 ```
