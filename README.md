@@ -18,7 +18,7 @@ A User can...
 
 ### Preview
 
-
+![misifus noms](https://raw.github.com/deniseyu/yelp-clone/master/public/images/screenshot.png)
 
 ### To Use
 
